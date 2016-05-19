@@ -10,13 +10,13 @@
 #   $host               %v
 #   $http_host          %v
 #   $remote_addr        %h
+#   $request_time       %T
 #   $request            %r
 #   $status             %s
 #   $body_bytes_sent    %b
 #   $bytes_sent         %b
 #   $http_referer       %R
 #   $http_user_agent    %u
-#   $request_time       %T
 #
 # Samples:
 #
@@ -64,13 +64,13 @@ conversion_table="time_local,%d:%t_%^
 host,%v
 http_host,%v
 remote_addr,%h
+request_time,%T
 request,%r
 status,%s
 body_bytes_sent,%b
 bytes_sent,%b
 http_referer,%R
-http_user_agent,%u
-request_time,%T"
+http_user_agent,%u"
 
 # Conversion
 for item in $conversion_table; do
