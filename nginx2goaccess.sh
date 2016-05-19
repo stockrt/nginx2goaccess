@@ -11,6 +11,9 @@
 #   $http_host          %v
 #   $remote_addr        %h
 #   $request_time       %T
+#   $request_method     %m
+#   $request_uri        %U
+#   $server_protocol    %H
 #   $request            %r
 #   $status             %s
 #   $body_bytes_sent    %b
@@ -65,6 +68,9 @@ host,%v
 http_host,%v
 remote_addr,%h
 request_time,%T
+request_method,%m
+request_uri,%U
+server_protocol,%H
 request,%r
 status,%s
 body_bytes_sent,%b
