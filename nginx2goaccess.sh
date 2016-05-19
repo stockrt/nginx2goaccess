@@ -13,6 +13,7 @@
 #   $request            %r
 #   $status             %s
 #   $body_bytes_sent    %b
+#   $bytes_sent         %b
 #   $http_referer       %R
 #   $http_user_agent    %u
 #   $request_time       %T
@@ -59,24 +60,27 @@ if [[ -z "$log_format" ]]; then
 fi
 
 # Variables map
-conversion_table="\$time_local,%d:%t_%^
-\$host,%v
-\$http_host,%v
-\$remote_addr,%h
-\$request,%r
-\$status,%s
-\$body_bytes_sent,%b
-\$http_referer,%R
-\$http_user_agent,%u
-\$request_time,%T"
+conversion_table="time_local,%d:%t_%^
+host,%v
+http_host,%v
+remote_addr,%h
+request,%r
+status,%s
+body_bytes_sent,%b
+bytes_sent,%b
+http_referer,%R
+http_user_agent,%u
+request_time,%T"
 
 # Conversion
 for item in $conversion_table; do
     nginx_var=${item%%,*}
     goaccess_var=${item##*,}
     goaccess_var=${goaccess_var//_/ }
-    log_format=${log_format//$nginx_var/$goaccess_var}
+    log_format=${log_format//\$\{$nginx_var\}/$goaccess_var}
+    log_format=${log_format//\$$nginx_var/$goaccess_var}
 done
+log_format=$(echo "$log_format" | sed 's/${[a-z_]*}/%^/g')
 log_format=$(echo "$log_format" | sed 's/$[a-z_]*/%^/g')
 
 # Config output
