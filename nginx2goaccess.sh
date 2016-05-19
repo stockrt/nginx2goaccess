@@ -19,24 +19,6 @@
 #
 # Samples:
 #
-# log_format main
-# '${time_local}\t${remote_addr}\t${host}\t${request_method}\t${request_uri}\t${server_protocol}\t'
-# '${http_referer}\t${http_x_mobile_group}\t'
-# 'Local:\t${status}\t*${connection}\t${body_bytes_sent}\t${request_time}\t'
-# 'Proxy:\t${upstream_status}\t${upstream_cache_status}\t'
-# '${upstream_response_length}\t${upstream_response_time}\t${uri}${log_args}\t'
-# 'Agent:\t${http_user_agent}\t'
-# 'Fwd:\t${http_x_forwarded_for}';
-#   ./nginx2goaccess.sh '${time_local}\t${remote_addr}\t${host}\t${request_method}\t${request_uri}\t${server_protocol}\t${http_referer}\t${http_x_mobile_group}\tLocal:\t${status}\t*${connection}\t${body_bytes_sent}\t${request_time}\tProxy:\t${upstream_status}\t${upstream_cache_status}\t${upstream_response_length}\t${upstream_response_time}\t${uri}${log_args}\tAgent:\t${http_user_agent}\tFwd:\t${http_x_forwarded_for}'
-#
-# log_format main
-# '$remote_addr\t$time_local\t$host\t$request\t$http_referer\t$http_x_mobile_group\t'
-# 'Local:\t$status\t$body_bytes_sent\t$request_time\t'
-# 'Proxy:\t$upstream_cache_status\t$upstream_status\t$upstream_response_length\t$upstream_response_time\t'
-# 'Agent:\t$http_user_agent\t'
-# 'Fwd:\t$http_x_forwarded_for';
-#   ./nginx2goaccess.sh '$remote_addr\t$time_local\t$host\t$request\t$http_referer\t$http_x_mobile_group\tLocal:\t$status\t$body_bytes_sent\t$request_time\tProxy:\t$upstream_cache_status\t$upstream_status\t$upstream_response_length\t$upstream_response_time\tAgent:\t$http_user_agent\tFwd:\t$http_x_forwarded_for'
-#
 # log_format combined '$remote_addr - $remote_user [$time_local] '
 # '"$request" $status $body_bytes_sent '
 # '"$http_referer" "$http_user_agent"';
@@ -46,6 +28,24 @@
 # '"$request" $status $bytes_sent '
 # '"$http_referer" "$http_user_agent" "$gzip_ratio"';
 #   ./nginx2goaccess.sh '$remote_addr - $remote_user [$time_local] "$request" $status $bytes_sent "$http_referer" "$http_user_agent" "$gzip_ratio"'
+#
+# log_format main
+# '$remote_addr\t$time_local\t$host\t$request\t$http_referer\t$http_x_mobile_group\t'
+# 'Local:\t$status\t$body_bytes_sent\t$request_time\t'
+# 'Proxy:\t$upstream_cache_status\t$upstream_status\t$upstream_response_length\t$upstream_response_time\t'
+# 'Agent:\t$http_user_agent\t'
+# 'Fwd:\t$http_x_forwarded_for';
+#   ./nginx2goaccess.sh '$remote_addr\t$time_local\t$host\t$request\t$http_referer\t$http_x_mobile_group\tLocal:\t$status\t$body_bytes_sent\t$request_time\tProxy:\t$upstream_cache_status\t$upstream_status\t$upstream_response_length\t$upstream_response_time\tAgent:\t$http_user_agent\tFwd:\t$http_x_forwarded_for'
+#
+# log_format main
+# '${time_local}\t${remote_addr}\t${host}\t${request_method}\t${request_uri}\t${server_protocol}\t'
+# '${http_referer}\t${http_x_mobile_group}\t'
+# 'Local:\t${status}\t*${connection}\t${body_bytes_sent}\t${request_time}\t'
+# 'Proxy:\t${upstream_status}\t${upstream_cache_status}\t'
+# '${upstream_response_length}\t${upstream_response_time}\t${uri}${log_args}\t'
+# 'Agent:\t${http_user_agent}\t'
+# 'Fwd:\t${http_x_forwarded_for}';
+#   ./nginx2goaccess.sh '${time_local}\t${remote_addr}\t${host}\t${request_method}\t${request_uri}\t${server_protocol}\t${http_referer}\t${http_x_mobile_group}\tLocal:\t${status}\t*${connection}\t${body_bytes_sent}\t${request_time}\tProxy:\t${upstream_status}\t${upstream_cache_status}\t${upstream_response_length}\t${upstream_response_time}\t${uri}${log_args}\tAgent:\t${http_user_agent}\tFwd:\t${http_x_forwarded_for}'
 #
 # Author: Rogério Carvalho Schneider <stockrt@gmail.com>
 
