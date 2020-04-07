@@ -54,7 +54,7 @@
 # Author: Rogério Carvalho Schneider <stockrt@gmail.com>
 
 # Params
-log_format="$1"
+log_format="${@:1}"
 
 # Usage
 if [[ -z "$log_format" ]]; then
